@@ -1,6 +1,7 @@
 const http_module = require('http'),
       express = require('express'),
-      path = require('path');
+      path = require('path'),
+      io = require('socket.io')(http);
 
 const hostname = '192.168.0.30';
 const port = 8000;
@@ -34,6 +35,12 @@ app.use(express.static(path.join(__dirname, 'pages', 'build')));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'pages', 'src', 'index.html'));
+});
+
+io.on('connection',function(socket){
+    socket.on('stream',function(image){
+        socket.broadcast.emit('stream',image);
+    });
 });
 
 const server = http.listen(app.get('port'), () => {

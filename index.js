@@ -1,5 +1,6 @@
 const http_module = require('http'),
-      express = require('express');
+      express = require('express'),
+      path = require('path');
 
 const hostname = '192.168.0.30';
 const port = 8000;
@@ -32,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'pages', 'build')));
 // });
 
 const server = http.listen(app.get('port'), () => {
-      console.info(`==> 🌎  Go to ` + HOST + `:${app.get('port')}`);
+      console.info(`==> 🌎  Go to ` + hostname + `:${app.get('port')}`);
     });
 
 const io = require('socket.io').listen(server);

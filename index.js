@@ -32,6 +32,10 @@ app.use(express.static(path.join(__dirname, 'pages', 'build')));
 //  }
 // });
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
+});
+
 const server = http.listen(app.get('port'), () => {
       console.info(`==> 🌎  Go to ` + hostname + `:${app.get('port')}`);
     });

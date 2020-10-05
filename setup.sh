@@ -20,4 +20,5 @@ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 apt-get update
 apt-get install libedgetpu1-std
 
-
+# start Node.js site
+node index.js

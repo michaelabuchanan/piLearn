@@ -39,13 +39,12 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res)
 {
-	res.redirect('index.html');
+	res.redirect('host.js');
 });
-
 
 const server = http.listen(app.get('port'), () => {
       console.info(`==> 🌎  Go to ` + hostname + `:${app.get('port')}`);
-    });
+});
 
 const io = require('socket.io').listen(server);
 

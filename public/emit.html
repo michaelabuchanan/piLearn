@@ -5,7 +5,7 @@
             <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     </head>
     <body>
-        <video src="" id="video" style="width:700px; height: 350px;" autoplay="true"></video>
+        <video type="video/mp4" id="video" style="width:700px; height: 350px;" autoplay="true"></video>
 
         <canvas style="display:none;" id="preview"></canvas>
         <div id="logger"></div>
@@ -50,8 +50,9 @@
         navigator.getUserMedia = ( navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msgGetUserMedia );
 
         if(navigator.getUserMedia){
-            navigator.getUserMedia({video: true, audio: false},loadCamera,loadFail);
-        }
+            //navigator.getUserMedia({video: true, audio: false},loadCamera,loadFail);
+           navigator.getUserMedia( mediaConfig)
+	}
 
         setInterval(function(){
             viewVideo(video,context);

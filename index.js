@@ -1,18 +1,18 @@
-const http_module = require('http'),
-      express = require('express'),
+const express = require('express'),
       path = require('path'),
-      io = require('socket.io')(http);
+      app = new express(),
+      http = require('http').Server(app);
 
 const hostname = '192.168.0.30';
 const port = 8000;
 
 // Initialize express app and http server
-const app = express();
-const http = http_module.Server(app);
+//const app = express();
+//const http = http_module.Server(app);
 
 app.set('port', port); // set express to use this port
 
-app.use(express.static(path.join(__dirname, 'pages', 'build')));
+app.use(express.static(__dirname + '/public'));
 
 // const server = http.createServer((req, res) => {
 //   res.statusCode = 200;
@@ -33,18 +33,19 @@ app.use(express.static(path.join(__dirname, 'pages', 'build')));
 //  }
 // });
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'pages', 'src', 'index.html'));
+//app.get('*', (req, res) => {
+//  res.sendFile(path.join(__dirname, 'pages', 'src', 'index.html'));
+//});
+
+app.get('/', function(req, res)
+{
+	res.redirect('index.html');
 });
 
-io.on('connection',function(socket){
-    socket.on('stream',function(image){
-        socket.broadcast.emit('stream',image);
-    });
-});
 
 const server = http.listen(app.get('port'), () => {
       console.info(`==> 🌎  Go to ` + hostname + `:${app.get('port')}`);
     });
 
 const io = require('socket.io').listen(server);
+

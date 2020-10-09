@@ -39,9 +39,9 @@ app.use(express.static(__dirname + '/public'));
 app.set('appPath', 'public');
 
 
-app.route('/*').get(function(req, res) {
-            res.sendfile(app.get('appPath') + '/index.html');
-          });
+app.all('*', function(req, res) {
+      res.sendfile(__dirname+'index.html')
+})
 
 const server = http.listen(app.get('port'), () => {
       console.info(`==> 🌎  Go to ` + hostname + `:${app.get('port')}`);

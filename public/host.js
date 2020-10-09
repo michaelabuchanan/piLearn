@@ -20,14 +20,6 @@ export default () => {
 
     var socket = io();
 
-    // const io = require("socket.io-client");
-
-    // let socket = io.connect("http://localhost:8080");
-
-    // socket.on("welcome", (data) => {
-    //     console.log(data);
-    // });
-
     function logger(msg) {
       $('#logger').text(msg);
     }
@@ -68,17 +60,12 @@ export default () => {
   }, []);
 
   return (
-    <div>
-      <video
-        src=""
-        id="video"
-        style={{ width: '680px' }}
-        autoplay="true"
-      ></video>
+    <>
+      <video src="" id="video" style={{ width: '680px' }} autoplay="true"></video>
 
       <canvas style={{ display: 'none' }} id="preview"></canvas>
 
       <div id="logger"></div>
-      </div>
+    </>
   );
 };

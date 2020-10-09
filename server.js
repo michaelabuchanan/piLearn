@@ -36,11 +36,13 @@ app.use(express.static(__dirname + '/public'));
 //app.get('*', (req, res) => {
 //  res.sendFile(path.join(__dirname, 'pages', 'src', 'index.html'));
 //});
+app.set('appPath', 'public');
 
-app.get('*', function(req, res)
+app.get('/*', function(req, res)
 {
-	res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+	.get(function(req, res) {
+            res.sendfile(app.get('appPath') + '/index.html');
+          });
 
 const server = http.listen(app.get('port'), () => {
       console.info(`==> 🌎  Go to ` + hostname + `:${app.get('port')}`);

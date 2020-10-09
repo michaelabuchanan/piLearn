@@ -40,7 +40,7 @@ app.set('appPath', 'public');
 
 
 app.all('*', function(req, res) {
-      res.sendfile(__dirname+'index.html')
+      res.sendfile(__dirname+'/index.html')
 })
 
 const server = http.listen(app.get('port'), () => {

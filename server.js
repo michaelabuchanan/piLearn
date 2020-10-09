@@ -1,3 +1,5 @@
+import Host from "./public/Host.js"
+
 const cors = require('cors'),
       express = require('express'),
       http_module = require('http'),
@@ -17,7 +19,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('*', (req, res) => {
-      res.sendFile(path.join(__dirname, 'public',  'app.js'));
+      res.send(path.join(__dirname, 'public',  'app.js'));
     });
     
 

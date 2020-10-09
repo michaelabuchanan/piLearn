@@ -68,7 +68,7 @@ export default () => {
   }, []);
 
   return (
-    <>
+    <div>
       <video
         src=""
         id="video"
@@ -79,6 +79,6 @@ export default () => {
       <canvas style={{ display: 'none' }} id="preview"></canvas>
 
       <div id="logger"></div>
-    </>
+      </div>
   );
 };

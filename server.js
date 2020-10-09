@@ -38,9 +38,8 @@ app.use(express.static(__dirname + '/public'));
 //});
 app.set('appPath', 'public');
 
-app.get('/*', function(req, res)
-{
-	.get(function(req, res) {
+
+app.route('/*').get(function(req, res) {
             res.sendfile(app.get('appPath') + '/index.html');
           });
 

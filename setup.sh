@@ -21,6 +21,6 @@ apt-get update
 apt-get install libedgetpu1-std
 
 # start Node.js site
-node index.js
+node server.js
 npm install express --save
 npm install socket.io --save

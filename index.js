@@ -37,10 +37,10 @@ app.use(express.static(__dirname + '/public'));
 //  res.sendFile(path.join(__dirname, 'pages', 'src', 'index.html'));
 //});
 
-app.get('/', function(req, res)
-{
-	res.redirect('host.js');
-});
+// app.get('/', function(req, res)
+// {
+// 	res.redirect('host.js');
+// });
 
 const server = http.listen(app.get('port'), () => {
       console.info(`==> 🌎  Go to ` + hostname + `:${app.get('port')}`);

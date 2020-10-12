@@ -3,7 +3,8 @@ import React, { useEffect } from 'react';
 import $ from 'jquery';
 import io from 'socket.io-client';
 
-function Host() {
+export default () => {
+  const init = async () => {
     document.title = 'Live-Stream Host';
 
     var canvas = document.getElementById('preview');
@@ -52,7 +53,7 @@ function Host() {
         viewVideo(video, context);
       }, 120);
     });
-  
+  };
 
   useEffect(() => {
     init();
@@ -67,6 +68,4 @@ function Host() {
       <div id="logger"></div>
     </>
   );
-} 
-
-export default Host;
+};

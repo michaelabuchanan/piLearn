@@ -4,7 +4,7 @@ import $ from 'jquery';
 import io from 'socket.io-client';
 
 export default () => {
-  const init = async () => {
+  function init() {
     document.title = 'Live-Stream Host';
 
     var canvas = document.getElementById('preview');
@@ -53,7 +53,7 @@ export default () => {
         viewVideo(video, context);
       }, 120);
     });
-  };
+  }
 
   useEffect(() => {
     init();
